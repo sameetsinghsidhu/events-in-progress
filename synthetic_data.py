@@ -72,9 +72,6 @@ def generate_dataset(n: int) -> list:
     # Picking a random month of the year
     month = randrange(1, 13, 1)
     
-    plays = []
-    
-    for _ in range(n):
-        plays.append(random_date_pair(year, month))
+    plays = [random_date_pair(year, month) for _ in range(n)]
         
     return plays
