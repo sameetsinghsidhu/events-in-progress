@@ -15,6 +15,10 @@ def maximum_plays(dataset: list) -> int:
     Returns:    maximum number of concurrent plays, int    
     """
     
+    # If an empty dataset is passed to the method
+    if len(dataset) == 0:
+        return 0
+    
     # Step 1) list[dict] -> list[tuple[tuple]], e.g
     #         [{start: 16-02-2022 22:55:00, end: 17-02-2022 01:50:00}, ...] -> 
     #         [((16-02-2022 22:55:00, 1), (17-02-2022 01:50:00, -1)), ...]
