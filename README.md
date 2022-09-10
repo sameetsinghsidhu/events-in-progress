@@ -32,7 +32,9 @@ from synthetic_data.py import generate_dataset
 dataset = generate_dataset(n = 10)
 ```
 
-The dataset is generated based on the assumptions mentioned above. However, the algorithm does work on data that includes plays lasting an arbitrary number of hours and even on plays which occur in different months/years. I decided to make the data generator code follow these assumptions because they increase the probability of plays being concurrent. (If I let the generator produce data from any random year/month combination too the likelihood of concurrent plays on small datasets would be low). This is an easy change to make if you did want it to do that though.
+This code would return a list containing 10 dictionaries of the form described above.
+
+The dataset is generated based on the assumptions mentioned above. However, the algorithm does work on data that includes plays lasting an arbitrary number of hours and even on plays which occur in different months/years. I decided to make the data generator code follow these assumptions because they increase the probability of plays being concurrent. (If I let the generator produce data from any random year/month combination the likelihood of concurrent plays on small datasets would be low). This is an easy change to make if you did want it to do that though.
 
 Another thing to note about the data generated from this script is:
 - The end datetime will always be greater than the start datetime by:
@@ -72,7 +74,7 @@ Next I unpack and chain the iterables together to produce a dataset like this:
  ('24/11/1991, 04:40:21', -1)]
 ```
  
-The next step is to sort this list of tuples, here is an example from a larger data (more concurrency):
+The next step is to sort this list of tuples by datetime, here is an example from a larger dataset (more concurrency):
  
 ```python
 (01/09/1988, 04:20:49, 1)
